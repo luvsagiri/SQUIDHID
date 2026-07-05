@@ -33,7 +33,10 @@ static const uint8_t _nkroReportDescriptor[] = {
   USAGE_PAGE(1),      0x07,                      USAGE_MINIMUM(1),   0x00,
   USAGE_MAXIMUM(2),   0xFC, 0x00,                LOGICAL_MINIMUM(1), 0x00,
   LOGICAL_MAXIMUM(1), 0x01,                      REPORT_SIZE(1),     0x01,
-  REPORT_COUNT(2),    0xFC, 0x00,                HIDINPUT(1),        0x02,                      
+  REPORT_COUNT(2),    0xFC, 0x00,                HIDINPUT(1),        0x02,
+  // Padding to byte-align the input report (252 bits + 4 bits = 32 bytes)
+  REPORT_COUNT(1),    0x04,                      REPORT_SIZE(1),     0x01,
+  HIDINPUT(1),        0x01,
   // Status LEDs - Output
   USAGE_PAGE(1),      0x08,                      USAGE_MINIMUM(1),   0x01,                      
   USAGE_MAXIMUM(1),   0x05,                      LOGICAL_MINIMUM(1), 0x00,
